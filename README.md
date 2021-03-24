@@ -17,4 +17,5 @@ and then compile the `main.cpp` file with any compiler that supports `#pragma pa
 For example, if you use `gcc`, compile with the following command: `g++ main.cpp` and you will either get a
 `a.exe` or `a.out` file.
 Afterwards, you can run the program from the command line and specify the image you want to convert as the first argument, like this:
+
 `a.exe example.bmp`
