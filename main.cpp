@@ -73,7 +73,7 @@ void convert_to_ascii(std::ofstream& file, const std::vector<std::uint8_t>& grey
     std::array<char, cm_size> char_map{'@', '#', '%', 'x', 'o', ';', ':', ',', '.', ' '};
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
-            file << char_map[static_cast<int>(grey_values[(i * width) + j] / 255.0f * (cm_size - 1))] << " ";
+            file << char_map[std::round(grey_values[(i * width) + j] / 255.0f * (cm_size - 1))] << " ";
         }
         file << "\n";
     }
@@ -105,7 +105,8 @@ int main(int argc, char** argv) {
         return EXIT_FAILURE;
     }
 
-    std::vector<std::uint8_t> grey_values(width * height);
+    std::vector<std::uint8_t> grey_values;
+    grey_values.reserve(width * height);
 
     std::cout << argv[1] << ": " << width << "x" << height << " with " << bytes_per_pixel << " bytes per pixel" << std::endl;
 
