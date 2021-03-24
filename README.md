@@ -14,6 +14,7 @@ Furthermore, this assumes the origin at the lower left corner of the image which
 To use this, simply clone this repository by doing
 `git clone https://github.com/xkevio/BMPtoASCII.git`
 and then compile the `main.cpp` file with any compiler that supports `#pragma pack`.
+
 For example, if you use `gcc`, compile with the following command: `g++ main.cpp` and you will either get a
 `a.exe` or `a.out` file.
 Afterwards, you can run the program from the command line and specify the image you want to convert as the first argument, like this:
