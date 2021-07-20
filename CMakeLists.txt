@@ -7,4 +7,4 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 add_compile_options(-O2)
 
-add_executable(BMPtoASCII main.cpp BMPFile.cpp)
+add_executable(BMPtoASCII src/main.cpp src/BMPFile.cpp)
