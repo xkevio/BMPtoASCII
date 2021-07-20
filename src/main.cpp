@@ -11,7 +11,7 @@ int main(int argc, char** argv) {
     }
 
     std::string f_name(argv[1]);
-    if (f_name.size() <= 4 || !f_name.compare(f_name.size() - 4, 4, ".bmp") == 0) {
+    if (f_name.size() <= 4 || f_name.compare(f_name.size() - 4, 4, ".bmp") != 0) {
         std::cerr << f_name << " is not a valid bitmap file!" << std::endl;
         return EXIT_FAILURE;
     }
