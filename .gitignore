@@ -2,5 +2,7 @@
 *.exe
 *.bmp
 *.ppm
-*.txt
 *.png
+
+output.txt
+build/
