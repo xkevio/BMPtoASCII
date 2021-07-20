@@ -9,7 +9,7 @@ Make sure to open the output as UTF-8 or otherwise it may not work.
 This will only work for 24 bit bitmap images, so transparency is not allowed for now.
 Furthermore, this assumes the origin at the lower left corner of the image which may be changed later on.
 
----
+## Usage
 
 To use this, simply clone this repository by doing
 `git clone https://github.com/xkevio/BMPtoASCII.git`
