@@ -13,10 +13,17 @@ Furthermore, this assumes the origin at the lower left corner of the image which
 
 To use this, simply clone this repository by doing
 `git clone https://github.com/xkevio/BMPtoASCII.git`
-and then compile the `main.cpp` file with any compiler that supports `#pragma pack`.
+and then compile the project with any compiler that supports `#pragma pack`.
 
-For example, if you use `gcc`, compile with the following command: `g++ main.cpp` and you will either get a
-`a.exe` or `a.out` file.
-Afterwards, you can run the program from the command line and specify the image you want to convert as the first argument, like this:
+### With CMake
+First, create a `build` folder in the project in which the binary will go.
+Then, head into that directory and type `cmake ..`.
+To finally build the binary, type `make`.
 
-`a.exe example.bmp`
+### Compiling manually
+If you do not use CMake or do not wish to install it, you can also compile this project manually with
+your favorite compiler. With `gcc` it could look like this for example:
+`g++ -o BMPtoASCII main.cpp BMPFile.cpp`
+
+Now you can use the project by simply typing
+`BMPtoASCII[.exe] img.bmp` in your terminal.
