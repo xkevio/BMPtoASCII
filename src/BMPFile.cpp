@@ -16,7 +16,7 @@ BMPFile::BMPFile(const std::string& file_name) {
     bytes_per_pixel = info_header.bits_per_pixel / 8;
 
     pixel_table.resize(width * height * bytes_per_pixel);
-    file.seekg(file_header.data_offset, file.beg);
+    file.seekg(file_header.data_offset, std::ifstream::beg);
 
     if (width % 4 == 0) {
         file.read(reinterpret_cast<char*>(pixel_table.data()), pixel_table.size());

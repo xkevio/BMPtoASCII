@@ -1,4 +1,3 @@
-#include <fstream>
 #include <iostream>
 #include <string>
 
@@ -18,7 +17,7 @@ int main(int argc, char** argv) {
 
     std::ofstream ofile("output.txt");
 
-    BMPFile img(f_name);   
+    BMPFile img(f_name);
     img.convert_to_ascii(ofile);
 
     std::cout << argv[1] << ": " << img.get_width() << "x" << img.get_height() << 

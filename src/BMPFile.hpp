@@ -20,7 +20,7 @@ class BMPFile {
     void convert_to_grey();
 
    public:
-    BMPFile(const std::string& file_name);
+    explicit BMPFile(const std::string& file_name);
     void convert_to_ascii(std::ofstream& file);
 
     [[nodiscard]] std::int32_t get_width() const;
