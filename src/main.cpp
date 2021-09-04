@@ -3,10 +3,14 @@
 
 #include "BMPFile.hpp"
 
+void usage() {
+    std::cout << "Usage:\n bmptoascii [filepath]" << std::endl;
+}
+
 int main(int argc, char** argv) {
     if (argc <= 1) {
-        std::cerr << "Please specify the input file!" << std::endl;
-        return EXIT_FAILURE;
+        usage();
+        return EXIT_SUCCESS;
     }
 
     std::string f_name(argv[1]);
