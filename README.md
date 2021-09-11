@@ -1,3 +1,4 @@
+![GitHub](https://img.shields.io/github/license/xkevio/BMPtoASCII)
 # BMPtoASCII
 
 This little project will try to read in `.bmp` files and convert them to lovely ASCII art with the given
