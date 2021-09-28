@@ -2,6 +2,7 @@
 
 #include <array>
 #include <cmath>
+#include <fstream>
 
 constexpr std::array<char, 10> char_map{'@', '#', '%', 'x', 'o', ';', ':', ',', '.', ' '};
 
@@ -33,30 +34,41 @@ BMPFile::BMPFile(const std::string& file_name) {
     }
 }
 
-void BMPFile::convert_to_grey() {
-    grey_values.reserve(width * height);
+void BMPFile::convert_to_gray() {
+    gray_values.reserve(width * height);
 
     for (auto i = height - 1; i >= 0; --i) {
         for (auto j = 0; j < width * bytes_per_pixel; j += 3) {
             std::int32_t index = (i * width * bytes_per_pixel) + j;
             float g = 0.299f * pixel_table[index + 2] + 0.587f * pixel_table[index + 1] + 0.114f * pixel_table[index];
-            grey_values.push_back(std::round(g));
+            gray_values.push_back(std::round(g));
         }
     }
 }
 
-void BMPFile::convert_to_ascii(std::ofstream& file) {
-    convert_to_grey();
+std::string BMPFile::convert_to_ascii() {
+    convert_to_gray();
+    std::string ascii_string;
+
     for (int i = 0; i < height; ++i) {
         for (int j = 0; j < width; ++j) {
-            file << char_map[std::round(grey_values[(i * width) + j] / 255.0f * 9)] << " ";
+            ascii_string += char_map[std::round(gray_values[(i * width) + j] / 255.0f * 9)];
+            ascii_string += " ";
         }
-        file << "\n";
+        ascii_string += "\n";
     }
+
+    return ascii_string;
 }
 
-[[nodiscard]] std::int32_t BMPFile::get_width() const { return width; }
+[[nodiscard]] std::int32_t BMPFile::get_width() const {
+    return width;
+}
 
-[[nodiscard]] std::int32_t BMPFile::get_height() const { return height; }
+[[nodiscard]] std::int32_t BMPFile::get_height() const {
+    return height;
+}
 
-[[nodiscard]] std::int32_t BMPFile::get_bytes_per_pixel() const { return bytes_per_pixel; }
+[[nodiscard]] std::int32_t BMPFile::get_bytes_per_pixel() const {
+    return bytes_per_pixel;
+}

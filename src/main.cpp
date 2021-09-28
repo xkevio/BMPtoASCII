@@ -1,3 +1,4 @@
+#include <fstream>
 #include <iostream>
 #include <string>
 
@@ -22,10 +23,10 @@ int main(int argc, char** argv) {
     std::ofstream ofile("output.txt");
 
     BMPFile img(f_name);
-    img.convert_to_ascii(ofile);
+    std::string ascii_art = img.convert_to_ascii();
+    ofile << ascii_art;
 
-    std::cout << argv[1] << ": " << img.get_width() << "x" << img.get_height() << 
-                    " with " << img.get_bytes_per_pixel() << " bytes per pixel\n";
+    std::cout << argv[1] << ": " << img.get_width() << "x" << img.get_height() << " with " << img.get_bytes_per_pixel() << " bytes per pixel\n";
     std::cout << "Saved output.txt next to binary\n";
 
     return EXIT_SUCCESS;

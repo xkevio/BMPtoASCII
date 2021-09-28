@@ -1,7 +1,7 @@
 #ifndef BMPFILE_HPP
 #define BMPFILE_HPP
 
-#include <fstream>
+#include <string>
 #include <vector>
 
 #include "BMPHeader.hpp"
@@ -16,12 +16,12 @@ class BMPFile {
     std::int32_t bytes_per_pixel;
 
     std::vector<std::uint8_t> pixel_table;
-    std::vector<std::uint8_t> grey_values;
-    void convert_to_grey();
+    std::vector<std::uint8_t> gray_values;
+    void convert_to_gray();
 
    public:
     explicit BMPFile(const std::string& file_name);
-    void convert_to_ascii(std::ofstream& file);
+    [[nodiscard]] std::string convert_to_ascii();
 
     [[nodiscard]] std::int32_t get_width() const;
     [[nodiscard]] std::int32_t get_height() const;
