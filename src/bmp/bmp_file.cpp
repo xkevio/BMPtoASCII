@@ -5,8 +5,6 @@
 #include <cmath>
 #include <fstream>
 
-constexpr std::array<char, 10> char_map{'@', '#', '%', 'x', 'o', ';', ':', ',', '.', ' '};
-
 BMPFile::BMPFile(const std::string& file_name) {
     std::ifstream file(file_name, std::ifstream::binary);
 
