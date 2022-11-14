@@ -1,8 +1,10 @@
 .vscode/
+.idea/
 *.exe
 *.bmp
 *.ppm
 *.png
 
-output.txt
+*.txt
 build/
+cmake-build-debug/
